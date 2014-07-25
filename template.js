@@ -2,7 +2,7 @@
  * grunt-wp-theme
  * https://github.com/10up/grunt-wp-theme
  *
- * Copyright (c) 2014 Eric Mann, 10up
+ * Copyright (c) 2014 Eric Mann, 10up, Nadd.co (Jepser Bernardino)
  * Licensed under the MIT License
  */
 
