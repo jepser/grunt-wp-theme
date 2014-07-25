@@ -47,7 +47,7 @@ define( '{%= prefix_caps %}_VERSION', '0.1.0' );
 	//getting vendors scripts and styles
 	wp_enqueue_script( 'vendor', get_template_directory_uri() . "/assets/js/vendor/vendor.js", array(), {%= prefix_caps %}_VERSION, true );
 
-	wp_enqueue_style( '{%= prefix %}', get_template_directory_uri() . "/assets/css/{%= js_safe_name %}{$postfix}.css", array(), {%= prefix_caps %}_VERSION );
+	wp_enqueue_style( 'vendor', get_template_directory_uri() . "/assets/css/{%= js_safe_name %}{$postfix}.css", array(), {%= prefix_caps %}_VERSION );
 
 	wp_enqueue_script( '{%= prefix %}', get_template_directory_uri() . "/assets/js/{%= js_safe_name %}{$postfix}.js", array('jquery', 'vendor'), {%= prefix_caps %}_VERSION, true );
 		
