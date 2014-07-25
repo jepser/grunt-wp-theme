@@ -42,7 +42,14 @@ define( '{%= prefix_caps %}_VERSION', '0.1.0' );
  function {%= prefix %}_scripts_styles() {
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? '' : '.min';
 
-	wp_enqueue_script( '{%= prefix %}', get_template_directory_uri() . "/assets/js/{%= js_safe_name %}{$postfix}.js", array(), {%= prefix_caps %}_VERSION, true );
+	wp_enqueue_script( 'jquery' );
+
+	//getting vendors scripts and styles
+	wp_enqueue_script( 'vendor', get_template_directory_uri() . "/assets/js/vendor/vendor.js", array(), {%= prefix_caps %}_VERSION, true );
+
+	wp_enqueue_style( '{%= prefix %}', get_template_directory_uri() . "/assets/css/{%= js_safe_name %}{$postfix}.css", array(), {%= prefix_caps %}_VERSION );
+
+	wp_enqueue_script( '{%= prefix %}', get_template_directory_uri() . "/assets/js/{%= js_safe_name %}{$postfix}.js", array('jquery', 'vendor'), {%= prefix_caps %}_VERSION, true );
 		
 	wp_enqueue_style( '{%= prefix %}', get_template_directory_uri() . "/assets/css/{%= js_safe_name %}{$postfix}.css", array(), {%= prefix_caps %}_VERSION );
  }
@@ -57,3 +64,8 @@ define( '{%= prefix_caps %}_VERSION', '0.1.0' );
 	echo apply_filters( '{%= prefix %}_humans', $humans );
  }
  add_action( 'wp_head', '{%= prefix %}_header_meta' );
+
+/**
+ * Adding thumbnails support
+ */
+ add_theme_support( 'post-thumbnails' );

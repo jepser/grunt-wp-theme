@@ -7,6 +7,11 @@ module.exports = function( grunt ) {
 	// Project configuration
 	grunt.initConfig( {
 		pkg:    grunt.file.readJSON( 'package.json' ),
+		//add bower vendor clients
+		vendorResources: {
+			js : [],
+			css : []
+		},
 		concat: {
 			options: {
 				stripBanners: true,
@@ -16,11 +21,10 @@ module.exports = function( grunt ) {
 					' * Licensed GPLv2+' +
 					' */\n'
 			},
-			{%= js_safe_name %}: {
-				src: [
-					'assets/js/src/{%= js_safe_name %}.js'
-				],
-				dest: 'assets/js/{%= js_safe_name %}.js'
+			files : {
+				'assets/js/{%= js_safe_name %}.js' : ['assets/js/src/{%= js_safe_name %}.js'],
+                'assets/js/vendor/vendor.js':'<%= vendorResources.js %>',
+                'assets/css/vendor.css':'<%= vendorResources.css %>'
 			}
 		},
 		jshint: {

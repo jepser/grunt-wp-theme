@@ -2,7 +2,7 @@
  * grunt-wp-theme
  * https://github.com/10up/grunt-wp-theme
  *
- * Copyright (c) 2013 Eric Mann, 10up
+ * Copyright (c) 2014 Eric Mann, 10up
  * Licensed under the MIT License
  */
 
@@ -38,7 +38,7 @@ exports.template = function( grunt, init, done ) {
 		{
 			name: 'css_type',
 			message: 'CSS Preprocessor: Will you use "Sass", "LESS", or "none" for CSS with this project?',
-			default: 'Sass'
+			default: 'LESS'
 		}
 	], function( err, props ) {
 		props.keywords = [];
