@@ -13,18 +13,20 @@ module.exports = function( grunt ) {
 			css : []
 		},
 		concat: {
-			options: {
+			all : {
+				options: {
 				stripBanners: true,
-				banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
-					' * <%= pkg.homepage %>\n' +
-					' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
-					' * Licensed GPLv2+' +
-					' */\n'
-			},
-			files : {
-				'assets/js/{%= js_safe_name %}.js' : ['assets/js/src/{%= js_safe_name %}.js'],
-                'assets/js/vendor/vendor.js':'<%= vendorResources.js %>',
-                'assets/css/vendor.css':'<%= vendorResources.css %>'
+					banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+						' * <%= pkg.homepage %>\n' +
+						' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
+						' * Licensed GPLv2+' +
+						' */\n'
+				},
+				files : {
+					'assets/js/{%= js_safe_name %}.js' : ['assets/js/src/{%= js_safe_name %}.js'],
+	                'assets/js/vendor/vendor.js':'<%= vendorResources.js %>',
+	                'assets/css/vendor.css':'<%= vendorResources.css %>'
+				}
 			}
 		},
 		jshint: {
